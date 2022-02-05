@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[british]{article}
 \usepackage{PECS2022_template}
 
 % ===-===-===-===-===-===-===-===-===-
@@ -35,7 +35,7 @@
 % ===-===-===-===-
 % Main text:
 
-1. The body of the abstract must be composed using calibri 10 pt, example: References should be indicated with numbers and respect the proposed formatting [1]. Here is an example text: Digital Microfluidics (DMF) [2] is a technique facilitating automated, discrete, sequential manipulation of microlitre-size droplets. DMF has been described as a new paradigm for microfluidics in general and Lab-on-a-Chip applications in particular [3].
+1. The body of the abstract must be composed using calibri 10 pt, example: References should be indicated with numbers and respect the proposed formatting \cite{article1}. Here is an example text: Digital Microfluidics (DMF) \cite{article2} is a technique facilitating automated, discrete, sequential manipulation of microlitre-size droplets. DMF has been described as a new paradigm for microfluidics in general and Lab-on-a-Chip applications in particular \cite{article3}.
 
 Droplets (Fig. \ref{fig:main_figure}) are precisely manipulated thereby facilitating automated, miniature version of ‘bench (bio)chemistry’ including self-contained sequential processes possibilities otherwise limited or restricted when employing traditional continuum microfluidics.
 
@@ -54,9 +54,9 @@ Droplets (Fig. \ref{fig:main_figure}) are precisely manipulated thereby facilita
 
 \textbf{4. The entire abstract (including text, figure, references) must not exceed one A4 page with the specified typesetting.}
 
-\textbf{5. Appropriate References} must be provided References must be numbered sequentially in their order of appearance as [1], [2]…
+\textbf{5. Appropriate References} must be provided References must be numbered sequentially in their order of appearance as \cite{article1}, \cite{article2}…
 
-The reference list calibri 9 pt must be provided at the end as: [1] Author 1 Name, Author 1 Initial(s), \textit{et al.} (date) Journal \textbf{Volume}(issue) page
+The reference list calibri 9 pt must be provided at the end as: \cite{article1} Author 1 Name, Author 1 Initial(s), \textit{et al.} (date) Journal \textbf{Volume}(issue) page
 
 6. In the footer of this document please indicate the topic under wish you want your research to be presented and indicate your preference of poster or oral presentation. 
 
@@ -71,12 +71,7 @@ The reference list calibri 9 pt must be provided at the end as: [1] Author 1 Nam
 % References:
 \vspace{3mm}
 \textbf{References}
-
-[1] Author 1 Name, Author 1 Initial(s), \textit{et al.} (date) Journal \textbf{Volume}(issue) page
-
-[2] Cho, S.K. \textit{et al.} (2003) Journal of microelectromechanical systems \textbf{12}(1) 70
-
-[3] Abdelgawad, M. \textit{et al.} (2009) Advanced Materials \textbf{21}(8) 920
+\printbibliography[heading=none]
 % ===-===-===-===-
 
 
