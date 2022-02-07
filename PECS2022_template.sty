@@ -2,9 +2,14 @@
 % \usepackage[utf8]{inputenc}
 \usepackage{layout}
 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{csquotes}
+
 % ===-===-===-===-===-===-===-===-===-
 % Font >>>
-\usepackage[fontsize=9.5pt]{fontsize}
+\usepackage[fontsize=10pt]{fontsize}
 \renewcommand{\sfdefault}{phv} % Arial
 \renewcommand{\familydefault}{\sfdefault}
 % Font <<<
@@ -45,6 +50,7 @@
     }
     \vspace{4pt}
 }
+
 % Header commands <<<
 % ===-===-===-===-===-===-===-===-===-
 
@@ -104,3 +110,73 @@
 \rhead{\bf{PECS Research Conference 2022}}
 % Headers <<<
 % ===-===-===-===-===-===-===-===-===-
+
+% ===-===-===-===-===-===-===-===-===-
+% Bibliography >>>
+
+\usepackage[
+citestyle=numeric-verb,
+bibstyle=ext-authoryear,
+maxbibnames=1,
+backend=biber,
+giveninits=true,
+doi = false,
+isbn = false,
+url = false,
+sorting=none,
+]{biblatex}
+\addbibresource{biblist.bib}
+
+
+\renewcommand*{\bibfont}{\small}
+
+\DefineBibliographyStrings{english}{
+  andothers = {\mkbibemph{et\addabbrvspace al\adddot}}
+}
+
+\renewbibmacro{in:}{}
+
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  }
+\renewcommand*{\finentrypunct}{}
+
+\DeclareDelimFormat[bib,biblist]{nameyeardelim}{\addspace}
+
+\DeclareFieldFormat*{number}{\mkbibparens{#1}}
+\DeclareFieldFormat*{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat*{pages}{\mkfirstpage{#1}}
+
+
+\AtEveryBibitem{\clearfield{title}}
+\AtEveryCitekey{\clearfield{title}}
+
+\AtEveryBibitem{\clearlist{publisher}}
+\AtEveryCitekey{\clearlist{publisher}}
+
+\DeclareNameAlias{default}{family-given}
+\DeclareNameAlias{sortname}{default}
+\DeclareNameAlias{labelname}{default}
+
+\DeclareFieldFormat{journaltitle}{#1} 
+\DeclareFieldFormat{booktitle}{#1} 
+
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+      \printfield{labelprefix}%
+      \printfield{labelnumber}}}
+     {\setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+      \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
